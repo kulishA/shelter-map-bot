@@ -13,5 +13,5 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
 
           script: |
-            git clone git@github.com:kulishA/shelters-map-bot.git bot
+            git clone git@github.com:kulishA/shelter-map-bot.git bot
             git submodule update --init --recursive
