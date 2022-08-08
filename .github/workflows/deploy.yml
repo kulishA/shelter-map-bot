@@ -5,13 +5,15 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy Golang app
+      - name: Deploy BOT app
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           key: ${{ secrets.SSH_KEY }}
           username: ${{ secrets.SSH_USERNAME }}
-
           script: |
-            git clone git@github.com:kulishA/shelter-map-bot.git bot
+            cd app/bot
+            git pull
             git submodule update --init --recursive
+            cd ..
+            ./deploy.sh
